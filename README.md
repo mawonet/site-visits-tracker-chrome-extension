@@ -1,4 +1,4 @@
-# Site Visits Tracker Chrome Extension · Chrome Extension
+# Site Visits Tracker Chrome Extension 
 
 A minimal Chrome extension that shows how often you visit selected sites today and yesterday, with a compact dark‑mode chart.
 
