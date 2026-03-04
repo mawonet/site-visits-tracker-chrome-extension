@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Site Visits</title>
+  <style>
+    :root {
+      --bg-main: #120f1a;
+      --bg-card: #1f1a2b;
+      --accent: #7c5cff;
+      --accent-soft: #a58bff;
+      --text-main: #f5f5ff;
+      --text-muted: #9a93b8;
+    }
+
+    body { 
+      width: 420px; min-height: 440px; padding: 18px; 
+      margin: 0; box-sizing: border-box;
+      background: radial-gradient(circle at top left, #2b2142 0%, #120f1a 55%, #090712 100%);
+      color: var(--text-main); 
+      font-family: 'Segoe UI', Tahoma, 'DejaVu Sans', sans-serif; 
+      font-size: 14px;
+    }
+
+    h3 { 
+      margin: 0 0 14px 0; 
+      font-size: 16px; 
+      letter-spacing: 0.03em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .icon-wrapper {
+      width: 26px;
+      height: 26px;
+      border-radius: 10px;
+      background: radial-gradient(circle at 30% 20%, var(--accent-soft), var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    }
+
+    .icon-bars {
+      width: 16px;
+      height: 14px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .icon-bars span {
+      position: absolute;
+      bottom: 0;
+      width: 3px;
+      border-radius: 999px;
+      background: #ffffff;
+    }
+
+    .icon-bars span:nth-child(1) {
+      left: 1px;
+      height: 6px;
+      opacity: 0.5;
+    }
+
+    .icon-bars span:nth-child(2) {
+      left: 6px;
+      height: 10px;
+      opacity: 0.8;
+    }
+
+    .icon-bars span:nth-child(3) {
+      left: 11px;
+      height: 14px;
+      opacity: 1;
+    }
+
+    .controls {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .toggle-btn {
+      flex: 1;
+      background: rgba(255,255,255,0.02);
+      color: var(--text-muted);
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 7px 0;
+      cursor: pointer;
+      font-size: 13px;
+      transition: 0.15s background, 0.15s border-color, 0.15s color, 0.15s transform;
+    }
+
+    .toggle-btn.active {
+      background: linear-gradient(135deg, var(--accent), var(--accent-soft));
+      border-color: transparent;
+      color: #fff;
+      transform: translateY(-1px);
+    }
+
+    .toggle-btn:hover {
+      border-color: rgba(255,255,255,0.18);
+    }
+
+    .card {
+      background: radial-gradient(circle at top left, rgba(255,255,255,0.08), rgba(255,255,255,0.0));
+      background-color: rgba(12, 10, 22, 0.95);
+      border-radius: 18px;
+      padding: 12px 14px;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow:
+        0 18px 35px rgba(0,0,0,0.75),
+        0 0 0 1px rgba(255,255,255,0.02);
+      backdrop-filter: blur(12px);
+    }
+
+    #stats { 
+      margin: 10px 0 12px 0; 
+      line-height: 1.4; 
+    }
+
+    #total { 
+      font-weight: 500; 
+      color: var(--accent-soft); 
+      margin-bottom: 4px;
+    }
+
+    .total-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .site-stat { 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center;
+      margin: 6px 0; 
+      padding: 6px 10px; 
+      background: rgba(18,15,32,0.9); 
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .site-name {
+      font-size: 13px;
+    }
+
+    .site-value {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    #svg-chart { 
+      width: 100%; 
+      height: 220px; 
+      margin-top: 12px; 
+      border-radius: 18px; 
+      background: radial-gradient(circle at 0% 0%, rgba(124,92,255,0.16), rgba(8,5,18,0.9));
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04);
+    }
+  </style>
+</head>
+<body>
+  <h3>
+    <div class="icon-wrapper">
+      <div class="icon-bars">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    Site visits
+  </h3>
+
+  <div class="controls">
+    <button id="todayBtn" class="toggle-btn">Today</button>
+    <button id="yesterdayBtn" class="toggle-btn active">Yesterday</button>
+  </div>
+
+  <div class="card">
+    <div id="stats">Loading stats...</div>
+    <svg id="svg-chart" viewBox="0 0 300 220"></svg>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

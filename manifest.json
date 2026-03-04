@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Site Visits Tracker Chrome Extension",
+  "version": "1.4",
+  "description": "Daily visit stats for selected sites with a compact chart.",
+  "permissions": ["history", "storage"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "icons": {
+    "128": "icon.png"
+  }
+}

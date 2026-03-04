@@ -1,0 +1,9 @@
+{
+  "sites": [
+    { "domain": "rabota.by","color": "#7C5CFF" },
+    { "domain": "hh.ru", "color": "#FF4B4B" },
+    { "domain": "hirehi.ru",  "color": "#FFC857" },
+    { "domain": "linkedin.com",  "color": "#0e76a8" },
+    { "domain": "geekjob.ru",  "color": "#808080" }
+  ]
+}
