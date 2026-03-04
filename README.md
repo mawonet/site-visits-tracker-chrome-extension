@@ -5,7 +5,11 @@ A minimal Chrome extension that shows how often you visit selected sites today a
 ## Overview
 
 **Site Visits Tracker Chrome Extension** is a lightweight Chrome extension that helps you understand how often you visit specific websites during the day.  
-It reads your browsing history, counts visits to a configurable list of domains, and visualizes the result in a modern dark popup with a mini pie chart. [web:111][web:113]
+It reads your browsing history, counts visits to a configurable list of domains, and visualizes the result in a modern dark popup with a mini pie chart.
+
+## Screenshot
+
+![Popup – Today](docs/scr.png)
 
 ## Features
 
@@ -17,7 +21,7 @@ It reads your browsing history, counts visits to a configurable list of domains,
 
 ## How it works
 
-- The extension uses the `chrome.history` API to query your browsing history. [web:11]  
+- The extension uses the `chrome.history` API to query your browsing history.
 - For each day, it counts:
   - the total number of history entries,
   - the number of entries matching each domain from `config.json`.
@@ -29,7 +33,7 @@ It reads your browsing history, counts visits to a configurable list of domains,
 Daily ranges:
 
 - **Today** – from today 00:00 to the current time.
-- **Yesterday** – from yesterday 00:00 to today 00:00. [web:39]
+- **Yesterday** – from yesterday 00:00 to today 00:00.
 
 ## Files
 
@@ -58,11 +62,11 @@ Example:
 ## Permissions
 This extension requires the following permissions:
 
-history – to read your browsing history and count visits per domain. [web:11]
+history – to read your browsing history and count visits per domain. 
 
 storage – reserved for future use (e.g. storing preferences or custom settings).
 
-No data is sent to any external server; all processing happens locally in your browser. [web:118]
+No data is sent to any external server; all processing happens locally in your browser. 
 
 ## Installation (local development)
 Clone this repository:
@@ -79,7 +83,7 @@ Click Load unpacked and select this project folder.
 Pin the extension icon in the toolbar and click it to open the popup.
 
 ## Usage
-Make sure browsing history is enabled in Chrome (the extension relies on it). [web:11]
+Make sure browsing history is enabled in Chrome (the extension relies on it). 
 
 Visit some of the sites listed in config.json during the day.
 
@@ -88,3 +92,12 @@ Click the extension icon to open the popup.
 Use the Today / Yesterday toggle to switch between daily stats.
 
 Adjust the list of tracked domains and their colors in config.json as needed.
+
+## Roadmap / Ideas
+Track approximate time spent per domain using tabs / webNavigation events.
+Custom date ranges (not only Today / Yesterday).
+Export stats to CSV.
+Options page to edit tracked sites without touching config.json.
+
+## License
+This project is open source and licensed under the MIT License. 
